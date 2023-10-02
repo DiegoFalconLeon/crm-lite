@@ -80,5 +80,6 @@ Route::get('/form/layouts-horizontal', $controller_path . '\form_layouts\Horizon
 Route::get('/tables/basic', $controller_path . '\tables\Basic@index')->name('tables-basic');
 
 //datos agregados despues de la plantilla
-Route::get('/', $controller_path . '\authentications\LoginBasic@index')->name('login');
+Route::get('/', $controller_path . '\login\LoginController@index')->name('login');
+Route::post('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
 Route::get('/users', $controller_path . '\users\UsersController@index')->name('users');
