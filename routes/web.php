@@ -80,6 +80,12 @@ Route::get('/form/layouts-horizontal', $controller_path . '\form_layouts\Horizon
 Route::get('/tables/basic', $controller_path . '\tables\Basic@index')->name('tables-basic');
 
 //datos agregados despues de la plantilla
+//login
 Route::get('/', $controller_path . '\login\LoginController@index')->name('login');
+Route::get('/logout', $controller_path . '\login\LoginController@logout')->name('logout');
 Route::post('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
+
+
+
+//usuarios
 Route::get('/users', $controller_path . '\users\UsersController@index')->name('users');
