@@ -193,6 +193,9 @@ return [
 
   'aliases' => Facade::defaultAliases()->merge([
     // ...
+    'Util' => App\Helpers\Util::class,
+	  'Fecha' => App\Helpers\Fecha::class,
+
   ])->toArray(),
 
 ];

@@ -81,7 +81,7 @@ Route::get('/tables/basic', $controller_path . '\tables\Basic@index')->name('tab
 
 //datos agregados despues de la plantilla
 //login
-Route::get('/', $controller_path . '\login\LoginController@index')->name('login');
+Route::get('/login', $controller_path . '\login\LoginController@index')->name('login');
 Route::get('/logout', $controller_path . '\login\LoginController@logout')->name('logout');
 Route::post('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
 
@@ -89,3 +89,9 @@ Route::post('/home', $controller_path . '\login\LoginController@authenticate')->
 
 //usuarios
 Route::get('/users', $controller_path . '\users\UsersController@index')->name('users');
+
+// Route::group(['middleware'=>'auth'],function(){
+//   $controller_path = 'App\Http\Controllers';
+// 	Route::get('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
+// });
+
