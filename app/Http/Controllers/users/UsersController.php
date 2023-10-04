@@ -39,9 +39,9 @@ class UsersController extends Controller
       $users->lastname = $request->lastname;
     	$users->email = $request->email;
       if($request->password != null){
-        $users->password = $request->password;
+        $users->password = Hash::make($request->password);
       }
-    	$users->password = Hash::make($request->password);
+      $users->role= $request->role;
       $users->status = $request->status;
     	$users->save();
     	return redirect()->route('users');
@@ -54,6 +54,7 @@ class UsersController extends Controller
       $users->email = $request->email;
       $users->password = Hash::make($request->password);
       $users->status = $request->status;
+      $users->role= $request->role;
       $users->save();
       return redirect()->route('users');
     }

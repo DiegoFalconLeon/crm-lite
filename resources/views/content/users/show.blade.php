@@ -27,8 +27,8 @@
               <input class="form-control" type="text" id="name" name="name" placeholder="Nombres" autofocus value="{{$users->name}}"/>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="lastName" class="form-label">Apellidos</label>
-              <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Apellidos"  value="{{$users->lastname}}"/>
+              <label for="lastname" class="form-label">Apellidos</label>
+              <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Apellidos"  value="{{$users->lastname}}"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="email" class="form-label">Correo</label>

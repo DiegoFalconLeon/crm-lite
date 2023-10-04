@@ -26,8 +26,8 @@
               <input class="form-control" type="text" id="name" name="name" placeholder="Nombres" autofocus/>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="lastName" class="form-label">Apellidos</label>
-              <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Apellidos"/>
+              <label for="lastname" class="form-label">Apellidos</label>
+              <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Apellidos"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="email" class="form-label">Correo</label>
@@ -50,17 +50,17 @@
             <div class="mb-3 col-md-6">
               <label class="form-label" for="password">Confirmar Contraseña</label>
               <div class="input-group input-group-merge">
-                <input type="passwoord" id="repassword" name="repassword" class="form-control" placeholder="********" />
+                <input type="password" id="repassword" name="repassword" class="form-control" placeholder="********" />
               </div>
             </div>
             <div class="mb-3 col-md-6">
               <label for="role" class="form-label">Rol</label>
-              <select id="role" name="role" class="select2 form-select">
+              <select id="role"  class="select2 form-select">
                 {{-- @foreach($users as $user)
                   <option value="{{$user->role}}" >{{Util::role($user->role)}} </option>
                 @endforeach --}}
-                <option value="A" >Administrador</option>
-                <option value="U" >Usuario</option>
+                <option name="role" value="A" >Administrador</option>
+                <option name="role" value="U" >Usuario</option>
               </select>
             </div>
             <div class="mb-3 col-md-6">
