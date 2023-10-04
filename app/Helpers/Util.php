@@ -22,9 +22,9 @@ class Util {
     	if($char=='A'){
         	$estilo = 'success';
     	}else if($char=='I'){
-        	$estilo = 'secondary';
-    	}else if($char=='E'){
         	$estilo = 'danger';
+    	}else if($char=='E'){
+        	$estilo = 'warning';
     	}else if($char=='N'){
         	$estilo = 'dark';
     	}

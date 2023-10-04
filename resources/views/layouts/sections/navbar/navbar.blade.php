@@ -67,8 +67,8 @@ $navbarDetached = ($navbarDetached ?? '');
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <span class="fw-semibold d-block">{{Auth::user()->name . " " .Auth::user()->lastname}}</span>
-                      <small class="text-muted">{{Util::role(Auth::user()->role)}}</small>
+                      <span class="fw-semibold d-block">{{Auth::user() ? Auth::user()->name . " " .Auth::user()->lastname : "Name Lastname"}}</span>
+                      <small class="text-muted">{{Auth::user() ? Util::role(Auth::user()->role) : "Invitado"}} </small>
                     </div>
                   </div>
                 </a>
