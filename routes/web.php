@@ -85,6 +85,10 @@ Route::get('/login', $controller_path . '\login\LoginController@index')->name('l
 Route::get('/logout', $controller_path . '\login\LoginController@logout')->name('logout');
 Route::post('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
 
+// Route::group(['middleware'=>'auth'],function(){
+//   $controller_path = 'App\Http\Controllers';
+// 	Route::get('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
+// });
 
 
 //usuarios
@@ -95,8 +99,15 @@ Route::get('/users/delete/{id}', $controller_path . '\users\UsersController@dele
 Route::post('/users/edit', $controller_path . '\users\UsersController@update')->name('users.edit');
 Route::post('/users/new', $controller_path . '\users\UsersController@newUser')->name('users.new');
 
-// Route::group(['middleware'=>'auth'],function(){
-//   $controller_path = 'App\Http\Controllers';
-// 	Route::get('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
-// });
+
+//clientes
+Route::get('/customers', $controller_path . '\customers\CustomerController@index')->name('customers.list');
+Route::get('/customers/create', $controller_path . '\customers\CustomerController@create')->name('customers.create');
+Route::get('/customers/show/{id}', $controller_path . '\customers\CustomerController@showCustomer')->name('customers.show');
+Route::get('/customers/delete/{id}', $controller_path . '\customers\CustomerController@delete')->name('customers.delete');
+Route::post('/customers/edit', $controller_path . '\customers\CustomerController@update')->name('customers.edit');
+Route::post('/customers/new', $controller_path . '\customers\CustomerController@newUser')->name('customers.new');
+
+
+
 

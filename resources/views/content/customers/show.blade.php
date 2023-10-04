@@ -18,7 +18,7 @@
       <h5 class="card-header">Usuario</h5>
       <hr class="my-0">
       <div class="card-body">
-        <form id="formAccountSettings" method="POST" action="{{route('users.edit')}}">
+        <form id="formAccountSettings" method="POST" action="{{route('customers.edit')}}">
           @csrf
           <input type="hidden" name="id" value="{{$users->id}}" />
           <div class="row">

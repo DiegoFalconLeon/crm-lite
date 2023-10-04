@@ -40,6 +40,18 @@ class Util {
     }else{
       $texto = 'Visitante';
     }
-return $texto;
-}
+    return $texto;
+  }
+
+  public static function cstatus($char){
+    $texto = '';
+    if($char=='1'){
+        $texto = 'Tomó el servicio';
+    }else if($char=='2'){
+        $texto = 'Posible cliente';
+    }else if($char=='0'){
+      $texto = 'No tomó el servicio';
+    }
+    return $texto;
+  }
 }

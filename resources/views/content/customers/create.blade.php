@@ -18,7 +18,7 @@
       <h5 class="card-header">Usuario</h5>
       <hr class="my-0">
       <div class="card-body">
-        <form id="formAccountSettings" method="POST" action="{{route('users.new')}}">
+        <form id="formAccountSettings" method="POST" action="{{route('customers.new')}}">
           @csrf
           <div class="row">
             <div class="mb-3 col-md-6">

@@ -34,7 +34,7 @@
       "slug": "customers",
       "submenu": [
         {
-          "url": "/users",
+          "url": "/customers",
           "name": "Lista de Clientes",
           "slug": "customers.list"
         },

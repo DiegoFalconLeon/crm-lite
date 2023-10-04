@@ -15,24 +15,26 @@
       <thead class="table-light">
         <tr>
           <th>Nombre Completo</th>
-          <th>Email</th>
-          <th>Area</th>
+          <th>Correo</th>
+          <th>Celular</th>
+          <th>Area de consulta</th>
           <th>Estado</th>
           <th>Ocpiones</th>
         </tr>
       </thead>
       <tbody class="table-border-bottom-0">
-        @foreach ($users as $user)
+        @foreach ($customers as $customer)
         <tr>
-          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$user->name ." ". $user->lastname}}</strong></td>
-          <td>{{$user->email}}</td>
+          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customer->name ." ". $customer->lastname}}</strong></td>
+          <td>{{$customer->email}}</td>
+          <td>{{$customer->phone}}</td>
           <td>
-            {{$user->userArea->name}}
+            {{$customer->areas->name}}
           </td>
-          <td><span class="badge bg-label-{{Util::bagde($user->status)}} me-1">{{Util::estado($user->status)}}</span></td>
+          <td><span class="badge bg-label-{{Util::bagde($customer->status)}} me-1">{{Util::estado($customer->status)}}</span></td>
           <td>
-            <a  href="users/show/{{$user->id}}"><i class="bx bx-edit-alt me-1"></i> editar</a>
-            <a  href="users/delete/{{$user->id}};"><i class="bx bx-trash me-1"></i> Borrar</a>
+            <a  href="customers/show/{{$customer->id}}"><i class="bx bx-edit-alt me-1"></i> editar</a>
+            <a  href="customers/delete/{{$customer->id}};"><i class="bx bx-trash me-1"></i> Borrar</a>
           </td>
         </tr>
         @endforeach
