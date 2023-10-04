@@ -16,23 +16,25 @@ class UsersSeeder extends Seeder
     {
       DB::table('users')->insert([
         	'id' => 1,
-          'user_area_id'=>1,
+          'area_id'=>1,
           'name'=>'Diego',
           'lastname'=>'Falcon Leon',
           'role'=>'A',
           'email'=>'admin@mail.com',
           'password'=>Hash::make('12345678'),
           'status'=>'A',
+          'created_at'=>now(),
     	]);
       DB::table('users')->insert([
         'id' => 2,
-        'user_area_id'=>2,
-        'name'=>'Evans',
-        'lastname'=>'Falcon Leon',
+        'area_id'=>2,
+        'name'=>'Evans Edward',
+        'lastname'=>'Falcon Cruz',
         'role'=>'U',
         'email'=>'user@mail.com',
         'password'=>Hash::make('12345678'),
         'status'=>'A',
+        'created_at'=>now(),
     ]);
     }
 }

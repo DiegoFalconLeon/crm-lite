@@ -27,7 +27,7 @@
           <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$user->name ." ". $user->lastname}}</strong></td>
           <td>{{$user->email}}</td>
           <td>
-            {{$user->userArea->name}}
+            {{$user->areas->name}}
           </td>
           <td><span class="badge bg-label-{{Util::bagde($user->status)}} me-1">{{Util::estado($user->status)}}</span></td>
           <td>

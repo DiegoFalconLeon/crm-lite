@@ -88,7 +88,7 @@ Route::post('/home', $controller_path . '\login\LoginController@authenticate')->
 
 
 //usuarios
-Route::get('/users', $controller_path . '\users\UsersController@index')->name('users');
+Route::get('/users', $controller_path . '\users\UsersController@index')->name('users.list');
 Route::get('/users/create', $controller_path . '\users\UsersController@create')->name('users.create');
 Route::get('/users/show/{id}', $controller_path . '\users\UsersController@showUser')->name('users.show');
 Route::get('/users/delete/{id}', $controller_path . '\users\UsersController@delete')->name('users.delete');

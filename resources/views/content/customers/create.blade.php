@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Usuarios - Nuevo Usuario')
+@section('title', 'Clientes - Nuevo Cliente')
 
 @section('page-script')
 <script src="{{asset('assets/js/pages-account-settings-account.js')}}"></script>
@@ -56,8 +56,11 @@
             <div class="mb-3 col-md-6">
               <label for="role" class="form-label">Rol</label>
               <select id="role" name="role" class="select2 form-select">
-                <option value="A">Administrador</option>
-                <option value="U">Usuario</option>
+                {{-- @foreach($users as $user)
+                  <option value="{{$user->role}}" >{{Util::role($user->role)}} </option>
+                @endforeach --}}
+                <option value="A" >Administrador</option>
+                <option value="U" >Usuario</option>
               </select>
             </div>
             <div class="mb-3 col-md-6">

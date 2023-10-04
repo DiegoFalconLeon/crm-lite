@@ -8,7 +8,7 @@
 
 @section('content')
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">Usuarios /</span> Nuevo Usuario
+  <span class="text-muted fw-light">Usuarios /</span> Editar Usuario
 </h4>
 
 <div class="row">
@@ -18,26 +18,27 @@
       <h5 class="card-header">Usuario</h5>
       <hr class="my-0">
       <div class="card-body">
-        <form id="formAccountSettings" method="POST" action="{{route('users.new')}}">
+        <form id="formAccountSettings" method="POST" action="{{route('users.edit')}}">
           @csrf
+          <input type="hidden" name="id" value="{{$users->id}}" />
           <div class="row">
             <div class="mb-3 col-md-6">
               <label for="name" class="form-label">Nombres</label>
-              <input class="form-control" type="text" id="name" name="name" placeholder="Nombres" autofocus/>
+              <input class="form-control" type="text" id="name" name="name" placeholder="Nombres" autofocus value="{{$users->name}}"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="lastname" class="form-label">Apellidos</label>
-              <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Apellidos"/>
+              <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Apellidos"  value="{{$users->lastname}}"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="email" class="form-label">Correo</label>
-              <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su correo"/>
+              <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su correo" value="{{$users->email}}"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="areas" class="form-label">Área</label>
               <select id="areas" name="areas" class="select2 form-select">
                 @foreach($areas as $area)
-                  <option value="{{$area->id}}" >{{$area->name}} </option>
+                  <option value="{{$area->id}}" @selected($area->id==$users->user_area_id)>{{$area->name}} </option>
                 @endforeach
               </select>
             </div>
@@ -50,21 +51,21 @@
             <div class="mb-3 col-md-6">
               <label class="form-label" for="password">Confirmar Contraseña</label>
               <div class="input-group input-group-merge">
-                <input type="password" id="repassword" name="repassword" class="form-control" placeholder="********" />
+                <input type="passwoord" id="repassword" name="repassword" class="form-control" placeholder="********" />
               </div>
             </div>
             <div class="mb-3 col-md-6">
               <label for="role" class="form-label">Rol</label>
               <select id="role" name="role" class="select2 form-select">
-                <option value="A">Administrador</option>
-                <option value="U">Usuario</option>
+                <option value="A" @selected($users->role=='A')>Administrador</option>
+                <option value="U" @selected($users->role=='U')>Usuario</option>
               </select>
             </div>
             <div class="mb-3 col-md-6">
               <label for="status" class="form-label">Estado</label>
               <select id="status" name="status" class="select2 form-select">
-                <option value="A" >Activo</option>
-                <option value="I" >Inactivo</option>
+                <option value="A" @selected($users->estado=='A')>Activo</option>
+                <option value="I" @selected($users->estado=='I')>Inactivo</option>
               </select>
             </div>
           <div class="mt-2">

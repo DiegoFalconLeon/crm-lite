@@ -15,12 +15,33 @@
         {
           "url": "/users",
           "name": "Lista de Usuarios",
-          "slug": "layouts-without-menu"
+          "slug": "users.list"
         },
         {
           "url": "/users/create",
           "name": "Nuevo Usuario",
-          "slug": "layouts-without-menu"
+          "slug": "users.create"
+        }
+      ]
+    },
+    {
+      "menuHeader": "Clientes"
+    },
+    {
+      "url": "/customers",
+      "name": "Clientes",
+      "icon": "menu-icon user-icon tf-icons bx bx-user",
+      "slug": "customers",
+      "submenu": [
+        {
+          "url": "/users",
+          "name": "Lista de Clientes",
+          "slug": "customers.list"
+        },
+        {
+          "url": "/customers/create",
+          "name": "Nuevo Cliente",
+          "slug": "customers.create"
         }
       ]
     },

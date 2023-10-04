@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable;
+            $table->foreignId('area_id')->references('id')->on('areas');
+            $table->foreignId('means_of_contact_id')->references('id')->on('means_of_contact');
+            $table->string('name')->nullable();
             $table->string('lastname')->nullable();
-            $table->char('dni','8')->nullable();
+            $table->string('document')->nullable();
             $table->string('email');
             $table->string('phone')->nullable();
-            $table->foreignId('means_of_contact_id')->references('id')->on('means_of_contact');
+            $table->char('status',1)->default('A')->comment('A: Active, I: Inactive');
             $table->timestamps();
         });
     }

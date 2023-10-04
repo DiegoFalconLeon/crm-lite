@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserArea extends Model
+class Area extends Model
 {
     use HasFactory;
-    protected $table = 'user_area';
+    protected $table = 'areas';
 }

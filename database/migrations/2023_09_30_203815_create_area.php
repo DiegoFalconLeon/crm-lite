@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_area', function (Blueprint $table) {
+        Schema::create('areas', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable;
-            $table->char('status',1)->default('A')->comment('A: Activo, I: Inactivo');
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();;
+            $table->char('status',1)->default('A')->comment('A: Active, I: Inactive');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_area');
+        Schema::dropIfExists('areas');
     }
 };

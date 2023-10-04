@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\UserArea;
+use App\Models\Area;
 
 class User extends Authenticatable
 {
@@ -43,8 +43,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function userArea(){
+    public function areas(){
     	// un libro pertenece a un autor
-    	return $this->belongsTo(UserArea::class);
+    	return $this->belongsTo(Area::class, 'area_id');
 	}
 }
