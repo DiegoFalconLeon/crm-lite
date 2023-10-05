@@ -46,12 +46,24 @@ class Util {
   public static function cstatus($char){
     $texto = '';
     if($char=='1'){
-        $texto = 'Tomó el servicio';
+        $texto = 'Concluido';
     }else if($char=='2'){
-        $texto = 'Posible cliente';
+        $texto = 'Por definir';
     }else if($char=='0'){
-      $texto = 'No tomó el servicio';
+      $texto = 'No aceptado';
     }
     return $texto;
+  }
+
+  public static function cbadge($char){
+    $estilo = '';
+    if($char=='1'){
+      $estilo = 'success';
+    }else if($char=='2'){
+      $estilo = 'warning';
+    }else if($char=='0'){
+      $estilo = 'danger';
+    }
+    return $estilo;
   }
 }

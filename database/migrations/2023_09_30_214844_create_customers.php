@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('area_id')->references('id')->on('areas');
             $table->foreignId('means_of_contact_id')->references('id')->on('means_of_contact');
-            $table->string('name')->nullable();
-            $table->string('lastname')->nullable();
+            $table->string('name');
+            $table->string('lastname');
             $table->string('document')->nullable();
-            $table->string('email');
+            $table->string('email')->nullable();;
             $table->string('phone')->nullable();
-            $table->char('status',1)->default('A')->comment('A: Active, I: Inactive');
+            $table->char('status',1)->default('A')->comment('0: No aceptado, 1: Concluido, 2: Por definir');
             $table->timestamps();
         });
     }
