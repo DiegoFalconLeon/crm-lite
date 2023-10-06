@@ -1,42 +1,43 @@
 <?php
 
-namespace App\Http\Controllers\customers;
+namespace App\Http\Controllers\customers\assign_user;
+
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Customer;
-use App\Models\Area;
 use App\Models\CustomersUsers;
-use App\Models\MeansOfContact;
+use App\Models\Area;
+use App\Models\Customer;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
-class CustomerController extends Controller
+class CustomersUsersController extends Controller
 {
   public function index(){
-    $customers = Customer::all();
-    return view('content.customers.index',compact('customers'));
+    $customers_users = CustomersUsers::all();
+    return view('content.customers.assign-user.index', compact('customers_users'));
   }
 
   public function create(){
     $customers = Customer::all();
-    $means_of_contact = MeansOfContact::all();
-    return view('content.customers.create', compact('customers','means_of_contact'));
+    $areas = Area::all();
+    $users = User::all();
+    $customers_users = CustomersUsers::all();
+    return view('content.customers.assign-user.create', compact('customers_users','areas','users','customers'));
   }
 
   public function showCustomer($id){
-    $customers = Customer::find($id);
-    $means_of_contact = MeansOfContact::all();
-    return view('content.customers.show', compact('customers', 'means_of_contact'));
+    $customers_users = CustomersUsers::find($id);
+
+    return view('content.customers.assign-user.show', compact('customers_users', 'means_of_contact'));
   }
   public function delete($id){
-    $customers = Customer::find($id);
+    $customers = CustomersUsers::find($id);
     $customers->delete();
-    return redirect()->route('customers.list');
+    return redirect()->route('customers.assign-user.list');
   }
   public function update(Request $request){
     $id = $request->id;
-    $customers = Customer::find($id);
+    $customers = CustomersUsers::find($id);
     // $customers->area_id = $request->areas;
     $customers->means_of_contact_id = $request->means_of_contact;
     $customers->name = $request->name;
@@ -47,10 +48,10 @@ class CustomerController extends Controller
     $customers->phone = $request->phone;
     $customers->status = $request->status;
     $customers->save();
-    return redirect()->route('customers.list');
+    return redirect()->route('customers.assign-user.list');
   }
   public function newUser(Request $request){
-    $customers = new Customer();
+    $customers = new CustomersUsers();
     $customers->means_of_contact_id = $request->means_of_contact;
     $customers->name = $request->name;
     $customers->lastname = $request->lastname;
@@ -59,6 +60,6 @@ class CustomerController extends Controller
     $customers->email = $request->email;
     $customers->phone = $request->phone;
     $customers->save();
-    return redirect()->route('customers.list');
+    return redirect()->route('customers.assign-user.list');
   }
 }

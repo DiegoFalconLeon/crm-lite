@@ -108,6 +108,15 @@ Route::get('/customers/delete/{id}', $controller_path . '\customers\CustomerCont
 Route::post('/customers/edit', $controller_path . '\customers\CustomerController@update')->name('customers.edit');
 Route::post('/customers/new', $controller_path . '\customers\CustomerController@newUser')->name('customers.new');
 
+//assisgn-user
+Route::get('/customers/assign-user', $controller_path . '\customers\assign_user\CustomersUsersController@index')->name('customers.assign-user.list');
+Route::get('/customers/assign-user/create', $controller_path . '\customers\assign_user\CustomersUsersController@create')->name('customers.assign-user.create');
+Route::get('/customers/assign-user/show/{id}', $controller_path . '\customers\assign_user\CustomersUsersController@show')->name('customers.assign-user.show');
+Route::get('/customers/assign-user/delete/{id}', $controller_path . '\customers\assign_user\CustomersUsersController@delete')->name('customers.assign-user.delete');
+Route::post('/customers/assign-user/edit', $controller_path . '\customers\assign_user\CustomersUsersController@update')->name('customers.assign-user.edit');
+Route::post('/customers/assign-user/new', $controller_path . '\customers\assign_user\CustomersUsersController@newUser')->name('customers.assign-user.new');
+
+
 
 
 

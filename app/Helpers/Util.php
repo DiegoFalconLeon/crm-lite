@@ -55,7 +55,7 @@ class Util {
     return $texto;
   }
 
-  public static function cbadge($char){
+  public static function cbagde($char){
     $estilo = '';
     if($char=='1'){
       $estilo = 'success';

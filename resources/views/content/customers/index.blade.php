@@ -16,9 +16,9 @@
         <tr>
           <th>Nombre Completo</th>
           <th>Documento</th>
-          {{-- <th>Correo</th> --}}
+          <th>Correo</th>
           <th>Celular</th>
-          <th>Area de consulta</th>
+          {{-- <th>Area de consulta</th> --}}
           <th>Contacto por</th>
           <th>Estado</th>
           <th>Ocpiones</th>
@@ -29,11 +29,11 @@
         <tr>
           <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customer->name ." ". $customer->lastname}}</strong></td>
           <td>{{$customer->document}}</td>
-          {{-- <td>{{$customer->email}}</td> --}}
+          <td>{{$customer->email}}</td>
           <td>{{$customer->phone}}</td>
-          <td>{{$customer->areas->name}}</td>
+          {{-- <td>{{$customer->areas->name}}</td> --}}
           <td>{{$customer->meansOfContact->name}}</td>
-          <td><span class="badge bg-label-{{Util::cbadge($customer->status)}} me-1">{{Util::cstatus($customer->status)}}</span></td>
+          <td><span class="badge bg-label-{{Util::bagde($customer->status)}} me-1">{{Util::estado($customer->status)}}</span></td>
           <td>
             <a  href="customers/show/{{$customer->id}}"><i class="bx bx-edit-alt me-1"></i> editar</a>
             <a  href="customers/delete/{{$customer->id}};"><i class="bx bx-trash me-1"></i> Borrar</a>

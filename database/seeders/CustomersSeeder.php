@@ -17,14 +17,14 @@ class CustomersSeeder extends Seeder
     {
       DB::table('customers')->insert([
         'id' => 1,
-        'area_id'=>1,
+        //'area_id'=>1,
         'means_of_contact_id'=>3,
         'name'=>'Juan',
         'lastname'=>'Perez',
         'document'=>'12345678',
         'email'=> 'juan@mail.com',
-        'phone'=>'123456789',
-        'status'=>'2',
+        'phone'=>'987654321',
+        'status'=>'A',
         'created_at'=>now(),
       ]);
     }

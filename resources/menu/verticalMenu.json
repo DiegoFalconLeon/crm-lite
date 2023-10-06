@@ -42,6 +42,11 @@
           "url": "/customers/create",
           "name": "Nuevo Cliente",
           "slug": "customers.create"
+        },
+        {
+          "url": "/customers/assign-user",
+          "name": "Añadir caso a trabajador",
+          "slug": "customers.assign-user.list"
         }
       ]
     },

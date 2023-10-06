@@ -37,17 +37,13 @@
               <label for="email" class="form-label">Correo</label>
               <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su correo"/>
             </div>
+            <div class="mb-3 col-md-12">
+              <label for="adress" class="form-label">Dirección</label>
+              <input class="form-control" type="text" id="address" name="address" placeholder="Ingrese su dirección"/>
+            </div>
             <div class="mb-3 col-md-6">
               <label for="phone" class="form-label">Celular</label>
               <input class="form-control" type="number" id="phone" name="phone" placeholder="Ingrese su celular"/>
-            </div>
-            <div class="mb-3 col-md-6">
-              <label for="areas" class="form-label">Área de consulta</label>
-              <select id="areas" name="areas" class="select2 form-select">
-                @foreach($areas as $area)
-                  <option value="{{$area->id}}" >{{$area->name}} </option>
-                @endforeach
-              </select>
             </div>
             <div class="mb-3 col-md-6">
               <label for="means_of_contact" class="form-label">Contactado por</label>
@@ -57,14 +53,12 @@
                 @endforeach
               </select>
             </div>
-            <div class="mb-3 col-md-6">
+            {{-- <div class="mb-3 col-md-6">
               <label for="status" class="form-label">Estado</label>
               <select id="status" name="status" class="select2 form-select">
-                <option value="2" >Por definir</option>
-                <option value="1" >Concluido</option>
-                <option value="0" >No aceptado</option>
-              </select>
-            </div>
+                <option value="A" >Activo</option>
+                <option value="I" >{{Util::estado('I')}}</option>
+            </div> --}}
           <div class="mt-2">
             <button  class="btn btn-primary me-2">Guardar</button>
             <a type="reset" class="btn btn-outline-secondary" href="/customers">Cancelar</a>

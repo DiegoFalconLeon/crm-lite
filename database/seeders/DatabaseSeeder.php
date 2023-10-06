@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             MeansOfContactSeeder::class,
             CustomersSeeder::class,
+            CustomersUsersSeeder::class,
         ]);
     }
 }
