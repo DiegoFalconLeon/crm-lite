@@ -114,7 +114,7 @@ Route::get('/customers/assign-user/create', $controller_path . '\customers\assig
 Route::get('/customers/assign-user/show/{id}', $controller_path . '\customers\assign_user\CustomersUsersController@show')->name('customers.assign-user.show');
 Route::get('/customers/assign-user/delete/{id}', $controller_path . '\customers\assign_user\CustomersUsersController@delete')->name('customers.assign-user.delete');
 Route::post('/customers/assign-user/edit', $controller_path . '\customers\assign_user\CustomersUsersController@update')->name('customers.assign-user.edit');
-Route::post('/customers/assign-user/new', $controller_path . '\customers\assign_user\CustomersUsersController@newUser')->name('customers.assign-user.new');
+Route::post('/customers/assign-user/new', $controller_path . '\customers\assign_user\CustomersUsersController@newCustomerUser')->name('customers.assign-user.new');
 
 
 

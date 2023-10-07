@@ -15,10 +15,10 @@
   <div class="col-md-12">
 
     <div class="card mb-4">
-      <h5 class="card-header">Cliente</h5>
+      <h5 class="card-header">Añadir trabajador</h5>
       <hr class="my-0">
       <div class="card-body">
-        <form id="formAccountSettings" method="POST" action="{{route('customers.new')}}">
+        <form id="formAccountSettings" method="POST" action="{{route('customers.assign-user.new')}}">
           @csrf
           <div class="row">
             <div class="mb-3 col-md-6">
@@ -30,32 +30,32 @@
               </select>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="customers" class="form-label">Escoger area</label>
-              <select id="customers" name="customers" class="select2 form-select">
+              <label for="areas" class="form-label">Escoger area</label>
+              <select id="areas" name="areas" class="select2 form-select">
                 @foreach($areas as $area)
                   <option value="{{$area->id}}" >{{$area->name}}</option>
                 @endforeach
               </select>
             </div>
             <div class="mb-3 col-md-12">
-              <label for="document" class="form-label">Detalle de consulta</label>
-              <input class="form-control" type="text" name="document" id="document" placeholder="Documento"/>
+              <label for="description" class="form-label">Detalle de consulta</label>
+              <input class="form-control" type="text" name="description" id="description" placeholder="Documento"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="amount" class="form-label">Monto</label>
               <input class="form-control" type="number" id="amount" name="amount" placeholder="Ingrese el monto"/>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="customers" class="form-label">Escoger area</label>
-              <select id="customers" name="customers" class="select2 form-select">
+              <label for="users" class="form-label">Escoger area</label>
+              <select id="users" name="users" class="select2 form-select">
                 @foreach($users as $user)
                   <option value="{{$user->id}}" >{{$user->name}} {{$user->lastname}}</option>
                 @endforeach
               </select>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="phone" class="form-label">Observacion</label>
-              <input class="form-control" type="number" id="phone" name="phone" placeholder="Ingrese su celular"/>
+              <label for="observation" class="form-label">Observacion</label>
+              <input class="form-control" type="number" id="observation" name="observation" placeholder="Ingrese su celular"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="status" class="form-label">Estado</label>
@@ -63,10 +63,12 @@
                 <option value="2" >{{Util::cstatus('2')}}</option>
                 <option value="0" >{{Util::cstatus('0')}}</option>
                 <option value="1" >{{Util::cstatus('1')}}</option>
+              </select>
             </div>
-          <div class="mt-2">
-            <button  class="btn btn-primary me-2">Guardar</button>
-            <a type="reset" class="btn btn-outline-secondary" href="/customers">Cancelar</a>
+            <div class="mt-2">
+              <button  class="btn btn-primary me-2">Guardar</button>
+              <a type="reset" class="btn btn-outline-secondary" href="/customers/assign-user">Cancelar</a>
+            </div>
           </div>
         </form>
       </div>

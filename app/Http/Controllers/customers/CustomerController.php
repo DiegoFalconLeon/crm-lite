@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Area;
-use App\Models\CustomersUsers;
 use App\Models\MeansOfContact;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;

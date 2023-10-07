@@ -6,7 +6,7 @@
 <h4 class="fw-bold py-3 mb-4">
   <span class="text-muted fw-light">Clientes /</span> Añadir caso a trabajador
 </h4>
-<div ><a href="/customers/assign-user/create" class="btn btn-primary">Añadir Nuevo</a></div></br>
+<div ><a href="/assign-user/create" class="btn btn-primary">Añadir Nuevo</a></div></br>
 
 <div class="card">
   {{-- <h5 class="card-header">Light Table head</h5> --}}
@@ -33,8 +33,8 @@
           <td>{{$customer_user->users->name.' '.$customer_user->users->lastname}}</td>
           <td><span class="badge bg-label-{{Util::cbagde($customer_user->status)}} me-1">{{Util::cstatus($customer_user->status)}}</span></td>
           <td>
-            <a  href="customers/assign-user/show/{{$customer_user->id}}"><i class="bx bx-edit-alt me-1"></i> editar</a>
-            <a  href="customers/assign-user/delete/{{$customer_user->id}};"><i class="bx bx-trash me-1"></i> Borrar</a>
+            <a  href="assign-user/show/{{$customer_user->id}}"><i class="bx bx-edit-alt me-1"></i> editar</a>
+            <a  href="assign-user/delete/{{$customer_user->id}};"><i class="bx bx-trash me-1"></i> Borrar</a>
           </td>
         </tr>
         @endforeach

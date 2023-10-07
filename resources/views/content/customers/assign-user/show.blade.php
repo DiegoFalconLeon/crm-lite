@@ -18,52 +18,58 @@
       <h5 class="card-header">Cliente</h5>
       <hr class="my-0">
       <div class="card-body">
-        <form id="formAccountSettings" method="POST" action="{{route('customers.edit')}}">
+        <form id="formAccountSettings" method="POST" action="{{route('customers.assign-user.edit')}}">
           @csrf
-          <input type="hidden" name="id" value="{{$customers->id}}" />
+          <input type="hidden" name="id" value="{{$customers_users->id}}" />
           <div class="row">
             <div class="mb-3 col-md-6">
-              <label for="name" class="form-label">Nombres</label>
-              <input class="form-control" type="text" id="name" name="name" placeholder="Nombres" autofocus value="{{$customers->name}}"/>
-            </div>
-            <div class="mb-3 col-md-6">
-              <label for="lastname" class="form-label">Apellidos</label>
-              <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Apellidos"  value="{{$customers->lastname}}"/>
-            </div>
-            <div class="mb-3 col-md-6">
-              <label for="document" class="form-label">Documento</label>
-              <input class="form-control" type="text" name="document" id="document" placeholder="Documento" value="{{$customers->document}}"/>
-            </div>
-            <div class="mb-3 col-md-6">
-              <label for="email" class="form-label">Correo</label>
-              <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su correo" value="{{$customers->email}}"/>
-            </div>
-            <div class="mb-3 col-md-6">
-              <label for="adress" class="form-label">Dirección</label>
-              <input class="form-control" type="text" id="address" name="address" value="{{$customers->address}}"/>
-            </div>
-            <div class="mb-3 col-md-6">
-              <label for="phone" class="form-label">Celular</label>
-              <input class="form-control" type="number" id="phone" name="phone" placeholder="Ingrese su celular" value="{{$customers->phone}}"/>
-            </div>
-            <div class="mb-3 col-md-6">
-              <label for="means_of_contact" class="form-label">Contactado por</label>
-              <select id="means_of_contact" name="means_of_contact" class="select2 form-select">
-                @foreach($means_of_contact as $moc)
-                  <option value="{{$moc->id}}" @selected($moc->id==$customers->means_of_contact_id)>{{$moc->name}} </option>
+              <label for="customers" class="form-label">Cliente</label>
+              <select id="customers" name="customers" class="select2 form-select">
+                @foreach($customers as $customer)
+                  <option value="{{$customer->id}}" @selected($customer->id==$customers_users->customer_id)>{{$customer->name}} {{$customer->lastname}}</option>
                 @endforeach
               </select>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="status" class="form-label">Estado</label>
-              <select id="status" name="status" class="select2 form-select">
-                <option value="A" @selected($customers->status=='A')>Activo</option>
-                <option value="I" @selected($customers->status=='I')>Inactivo</option>
+              <label for="areas" class="form-label">Area de consulta</label>
+              <select id="areas" name="areas" class="select2 form-select">
+                @foreach($areas as $area)
+                  <option value="{{$area->id}}" @selected($area->id==$customers_users->area_id)>{{$area->name}}</option>
+                @endforeach
               </select>
             </div>
-          <div class="mt-2">
-            <button  class="btn btn-primary me-2">Guardar</button>
-            <a type="reset" class="btn btn-outline-secondary" href="/customers">Cancelar</a>
+            <div class="mb-3 col-md-12">
+              <label for="description" class="form-label">Detalle de consulta</label>
+              <input class="form-control" type="text" name="description" id="description" value="{{$customers_users->description}}"/>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label for="amount" class="form-label">Monto</label>
+              <input class="form-control" type="number" id="amount" name="amount" value="{{$customers_users->amount}}"/>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label for="users" class="form-label">Trabajador asignado</label>
+              <select id="users" name="users" class="select2 form-select">
+                @foreach($users as $user)
+                  <option value="{{$user->id}}" @selected($user->id==$customers_users->user_id)>{{$user->name}} {{$user->lastname}}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label for="observation" class="form-label">Observacion</label>
+              <input class="form-control" type="number" id="observation" name="observation" placeholder="Ingrese su celular"/>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label for="status" class="form-label">Estado</label>
+              <select id="status" name="status" class="select2 form-select">
+                <option value="2"  @selected($customers_users->status=='2')>{{Util::cstatus('2')}}</option>
+                <option value="0"  @selected($customers_users->status=='0')>{{Util::cstatus('0')}}</option>
+                <option value="1"  @selected($customers_users->status=='1')>{{Util::cstatus('1')}}</option>
+              </select>
+            </div>
+            <div class="mt-2">
+              <button  class="btn btn-primary me-2">Guardar</button>
+              <a type="reset" class="btn btn-outline-secondary" href="/customers/assign-user">Cancelar</a>
+            </div>
           </div>
         </form>
       </div>
