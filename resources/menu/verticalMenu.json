@@ -51,6 +51,21 @@
       ]
     },
     {
+      "menuHeader": "Configuracion"
+    },
+    {
+      "name": "Areas",
+      "icon": "menu-icon tf-icons bx bx-collection",
+      "slug": "areas.list",
+      "url": "/areas"
+    },
+    {
+      "name": "Medios de contacto",
+      "icon": "menu-icon tf-icons bx bx-detail",
+      "slug": "meansofcontact.list",
+      "url": "/meansofcontact"
+    },
+    {
       "name": "Layouts",
       "icon": "menu-icon tf-icons bx bx-layout",
       "slug": "layouts",

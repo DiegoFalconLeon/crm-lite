@@ -6,7 +6,7 @@
 <h4 class="fw-bold py-3 mb-4">
   <span class="text-muted fw-light">Clientes /</span> Añadir caso a trabajador
 </h4>
-<div ><a href="/assign-user/create" class="btn btn-primary">Añadir Nuevo</a></div></br>
+<div ><a href="assign-user/create" class="btn btn-primary">Añadir Nuevo</a></div></br>
 
 <div class="card">
   {{-- <h5 class="card-header">Light Table head</h5> --}}

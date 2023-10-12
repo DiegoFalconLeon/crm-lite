@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('means_of_contact', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->char('status',1)->default('A')->comment('A: Active, I: Inactive');
             $table->timestamps();
         });
     }

@@ -116,6 +116,21 @@ Route::get('/customers/assign-user/delete/{id}', $controller_path . '\customers\
 Route::post('/customers/assign-user/edit', $controller_path . '\customers\assign_user\CustomersUsersController@update')->name('customers.assign-user.edit');
 Route::post('/customers/assign-user/new', $controller_path . '\customers\assign_user\CustomersUsersController@newCustomerUser')->name('customers.assign-user.new');
 
+//areas
+Route::get('/areas', $controller_path . '\areas\AreaController@index')->name('areas.list');
+Route::get('/areas/create', $controller_path . '\areas\AreaController@create')->name('areas.create');
+Route::get('/areas/show/{id}', $controller_path . '\areas\AreaController@showArea')->name('areas.show');
+Route::get('/areas/delete/{id}', $controller_path . '\areas\AreaController@delete')->name('areas.delete');
+Route::post('/areas/edit', $controller_path . '\areas\AreaController@update')->name('areas.edit');
+Route::post('/areas/new', $controller_path . '\areas\AreaController@newArea')->name('areas.new');
+
+//meansofcontact
+Route::get('/meansofcontact', $controller_path . '\means_of_contact\MeansOfContactController@index')->name('meansofcontact.list');
+Route::get('/meansofcontact/create', $controller_path . '\means_of_contact\MeansOfContactController@create')->name('meansofcontact.create');
+Route::get('/meansofcontact/show/{id}', $controller_path . '\means_of_contact\MeansOfContactController@showArea')->name('meansofcontact.show');
+Route::get('/meansofcontact/delete/{id}', $controller_path . '\means_of_contact\MeansOfContactController@delete')->name('meansofcontact.delete');
+Route::post('/meansofcontact/edit', $controller_path . '\means_of_contact\MeansOfContactController@update')->name('meansofcontact.edit');
+Route::post('/meansofcontact/new', $controller_path . '\means_of_contact\MeansOfContactController@newUser')->name('meansofcontact.new');
 
 
 
