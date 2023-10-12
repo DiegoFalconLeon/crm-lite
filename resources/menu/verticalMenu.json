@@ -54,6 +54,12 @@
       "menuHeader": "Configuracion"
     },
     {
+      "name": "Empresa",
+      "icon": "menu-icon tf-icons bx bx-cog",
+      "slug": "company.index",
+      "url": "/company"
+    },
+    {
       "name": "Areas",
       "icon": "menu-icon tf-icons bx bx-collection",
       "slug": "areas.list",

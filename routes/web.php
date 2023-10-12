@@ -132,6 +132,7 @@ Route::get('/meansofcontact/delete/{id}', $controller_path . '\means_of_contact\
 Route::post('/meansofcontact/edit', $controller_path . '\means_of_contact\MeansOfContactController@update')->name('meansofcontact.edit');
 Route::post('/meansofcontact/new', $controller_path . '\means_of_contact\MeansOfContactController@newUser')->name('meansofcontact.new');
 
-
+//company
+Route::get('/company', $controller_path . '\company\CompanyController@index')->name('company.index');
 
 
