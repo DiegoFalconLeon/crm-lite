@@ -30,4 +30,4 @@
     </g>
   </g>
 </svg> --}}
-<img src="{{ asset('assets/img/logo/logo.png') }}" alt="Logo" class="app-brand-logo demo" width="220">
+<img src="{{ asset('companies/default.png') }}" alt="Logo" class="app-brand-logo demo" width="220">

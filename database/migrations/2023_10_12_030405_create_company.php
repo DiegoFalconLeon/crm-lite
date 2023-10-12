@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string("name", 100);
             $table->string("document", 11)->unique();
             $table->string("address", 100);
+            $table->string('phone', 11)->nullable();
+            $table->string('email', 50)->nullable();
+            $table->string('website', 100)->nullable();
             $table->string("image", 100)->nullable()->default("default.png");
             $table->timestamps();
         });

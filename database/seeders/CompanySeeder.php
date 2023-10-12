@@ -19,6 +19,9 @@ class CompanySeeder extends Seeder
             'name' => 'Corporación de Abogados Cridez SAC',
             'document' => '12345678901',
             'address' => 'Urbanización Los Jazmines Mz. A Lt. 1 - San Juan de Lurigancho',
+            'phone' => '987654321',
+            'email' => 'cridez@mail.com',
+            'website' => 'www.cridez.com',
             'image' => 'default.png',
             'created_at' => now(),
         ]);

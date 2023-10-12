@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Company;
 use App\Models\Customer;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
             MeansOfContactSeeder::class,
             CustomersSeeder::class,
             CustomersUsersSeeder::class,
+            CompanySeeder::class,
         ]);
     }
 }
