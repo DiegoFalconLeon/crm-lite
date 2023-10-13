@@ -6,7 +6,9 @@
 <h4 class="fw-bold py-3 mb-4">
   <span class="text-muted fw-light">Clientes /</span> Lista de Clientes
 </h4>
-<div ><a href="/customers/create" class="btn btn-primary">Crear Cliente</a></div></br>
+<div ><a href="/customers/create" class="btn btn-primary">Crear Cliente</a>
+  <a href="{{route('customers.pdf')}}" class="btn btn-danger">Exportar PDF</a>
+</div></br>
 
 <div class="card">
   {{-- <h5 class="card-header">Light Table head</h5> --}}
@@ -18,7 +20,6 @@
           <th>Documento</th>
           <th>Correo</th>
           <th>Celular</th>
-          {{-- <th>Area de consulta</th> --}}
           <th>Contacto por</th>
           <th>Estado</th>
           <th>Ocpiones</th>

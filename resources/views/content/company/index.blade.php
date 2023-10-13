@@ -40,7 +40,7 @@
       </div>
       <hr class="my-0">
       <div class="card-body">
-        <form id="formAccountSettings" method="POST" onsubmit="return false">
+        <form id="formAccountSettings" method="POST" action="{{route('company.update')}}">
           @csrf
           <div class="row">
             <div class="mb-3 col-md-6">

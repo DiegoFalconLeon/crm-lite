@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Area;
+use App\Models\Company;
 use App\Models\MeansOfContact;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -60,4 +61,15 @@ class CustomerController extends Controller
     $customers->save();
     return redirect()->route('customers.list');
   }
+
+  public function exportarPDF(){
+    $customers = Customer::all();
+    $company = Company::find(1);
+    // Convertimos la vista en un documento pdf.blade.php y le pasamos los datos del libro
+    $pdf = \PDF::loadView('content.customers.pdf ', compact('customers','company'));
+    // Descargamos el documento pdf con el nombre ficha_libro.php
+    return $pdf->download('Clientes.pdf');
+  }
+
+
 }
