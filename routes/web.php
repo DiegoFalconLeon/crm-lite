@@ -107,7 +107,8 @@ Route::get('/customers/show/{id}', $controller_path . '\customers\CustomerContro
 Route::get('/customers/delete/{id}', $controller_path . '\customers\CustomerController@delete')->name('customers.delete');
 Route::post('/customers/edit', $controller_path . '\customers\CustomerController@update')->name('customers.edit');
 Route::post('/customers/new', $controller_path . '\customers\CustomerController@newUser')->name('customers.new');
-Route::get('customers/exportar/pdf', $controller_path . '\customers\CustomerController@exportarPDF')->name('customers.pdf');
+Route::get('customers/export/pdf', $controller_path . '\customers\CustomerController@exportPDF')->name('customers.pdf');
+Route::get('customers/export/excel', $controller_path . '\customers\CustomerController@exportExcel')->name('customers.excel');
 
 //assisgn-user
 Route::get('/customers/assign-user', $controller_path . '\customers\assign_user\CustomersUsersController@index')->name('customers.assign-user.list');

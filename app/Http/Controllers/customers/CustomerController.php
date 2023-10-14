@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\customers;
 
+use App\Exports\CustomerExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
@@ -10,6 +11,8 @@ use App\Models\Company;
 use App\Models\MeansOfContact;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Exports\CustomersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CustomerController extends Controller
 {
@@ -62,7 +65,7 @@ class CustomerController extends Controller
     return redirect()->route('customers.list');
   }
 
-  public function exportarPDF(){
+  public function exportPDF(){
     $customers = Customer::all();
     $company = Company::find(1);
     // Convertimos la vista en un documento pdf.blade.php y le pasamos los datos del libro
@@ -71,5 +74,9 @@ class CustomerController extends Controller
     return $pdf->download('Clientes.pdf');
   }
 
+  public function exportExcel(){
+    $excel = new CustomerExport;
+    return Excel::download($excel, 'Clientes.xlsx');
+  }
 
 }
