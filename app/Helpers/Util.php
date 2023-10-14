@@ -46,11 +46,11 @@ class Util {
   public static function cstatus($char){
     $texto = '';
     if($char=='1'){
-        $texto = 'Concluido';
+        $texto = 'Aceptado';
     }else if($char=='2'){
         $texto = 'Por definir';
     }else if($char=='0'){
-      $texto = 'No aceptado';
+      $texto = 'Rechazado';
     }
     return $texto;
   }

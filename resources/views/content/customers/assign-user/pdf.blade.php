@@ -81,8 +81,7 @@
                 <br>{{ $company->name }}
                 <br>RUC: {{ $company->document }}
             </td>
-            <td class="center"><h2><strong>Lista de Clientes</strong></h2>
-                <h3>GLOBAL</h3></td>
+            <td class="center"><h2><strong>Lista de Posibles Clientes</strong></h2>
             <td class="center">Fecha: {{ now(); }}</td>
         </tr>
     </table>
@@ -99,16 +98,30 @@
                   <th>Estado</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach ($customers as $customer)
+            <tbody
+                @php
+                  $aceptado,$noaceptado,$pendiente = 0;
+                @endphp
+                @foreach ($customers_users as $customer_user)
                 <tr>
-                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customers_users->name ." ". $customers_users->lastname}}</strong></td>
-                  <td>{{$customers_users->meansOfContact->name}}</td>
-                  <td>{{$customers_users->document}}</td>
-                  <td>{{$customers_users->email}}</td>
-                  <td>{{$customers_users->phone}}</td>
-                  {{-- <td>{{$customer->areas->name}}</td> --}}
-                  <td><span class="badge bg-label-{{Util::bagde($customers_users->status)}} me-1">{{Util::estado($customers_users->status)}}</span></td>
+                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customer_user->customers->name ." ". $customer_user->customers->lastname}}</strong></td>
+                  <td>{{$customer_user->areas->name}}</td>
+                  <td>{{$customer_user->description}}</td>
+                  <td>{{$customer_user->amount}}</td>
+                  <td>{{$customer_user->users->name." ".$customer_user->users->lastname}}</td>
+                  @if ($customer_user->status == 1) {{--aceptado--}}
+                    <td style=" background: greenyellow;">
+                      <span >{{Util::cstatus($customer_user->status)}}</span>
+                    </td>
+                  @elseif ($customer_user->status == 2){{--pendiente--}}
+                    <td style=" background: yellow;">
+                      <span >{{Util::cstatus($customer_user->status)}}</span>
+                    </td>
+                  @else
+                  <td style=" background: red; color:white">{{--rechazado--}}
+                    <span >{{Util::cstatus($customer_user->status)}}</span>
+                  </td>
+                  @endif
                 </tr>
                 @endforeach
             </tbody>

@@ -65,9 +65,10 @@ class CustomersUsersController extends Controller
   }
   public function exportPDF(){
     $customers_users = CustomersUsers::all();
+    //dd($customers_users);
     $company = Company::find(1);
     // Convertimos la vista en un documento pdf.blade.php y le pasamos los datos del libro
-    $pdf = \PDF::loadView('content.assign-user.pdf ', compact('customers_users','company'));
+    $pdf = \PDF::loadView('content.customers.assign-user.pdf', compact('customers_users','company'));
     // Descargamos el documento pdf con el nombre ficha_libro.php
     return $pdf->download('Estados de casos.pdf');
   }
