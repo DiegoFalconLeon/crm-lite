@@ -4,9 +4,13 @@
 
 @section('content')
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">Clientes /</span> Añadir caso a trabajador
+  <span class="text-muted fw-light">Clientes /</span> Listar Casos
 </h4>
-<div ><a href="assign-user/create" class="btn btn-primary">Añadir Nuevo</a></div></br>
+<div >
+  <a href="assign-user/create" class="btn btn-primary">Añadir Nuevo</a>
+  <a href="{{route('customers.assign-user.pdf')}}" class="btn btn-danger">Exportar PDF</a>
+  <a href="{{route('customers.assign-user.excel')}}" class="btn btn-success">Exportar PDF</a>
+</div></br>
 
 <div class="card">
   {{-- <h5 class="card-header">Light Table head</h5> --}}

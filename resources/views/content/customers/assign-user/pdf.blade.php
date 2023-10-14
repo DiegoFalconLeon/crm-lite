@@ -91,24 +91,24 @@
         <table class="table" border="0">
             <thead>
                 <tr>
-                  <th>Nombre Completo</th>
-                  <th>Medio de contacto</th>
-                  <th>Documento</th>
-                  <th>Correo</th>
-                  <th>Celular</th>
+                  <th>Nombre del Cliente</th>
+                  <th>Area de consulta</th>
+                  <th>Detalle de consulta</th>
+                  <th>Monto</th>
+                  <th>Trabajador Asignado</th>
                   <th>Estado</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($customers as $customer)
                 <tr>
-                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customer->name ." ". $customer->lastname}}</strong></td>
-                  <td>{{$customer->meansOfContact->name}}</td>
-                  <td>{{$customer->document}}</td>
-                  <td>{{$customer->email}}</td>
-                  <td>{{$customer->phone}}</td>
+                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customers_users->name ." ". $customers_users->lastname}}</strong></td>
+                  <td>{{$customers_users->meansOfContact->name}}</td>
+                  <td>{{$customers_users->document}}</td>
+                  <td>{{$customers_users->email}}</td>
+                  <td>{{$customers_users->phone}}</td>
                   {{-- <td>{{$customer->areas->name}}</td> --}}
-                  <td><span class="badge bg-label-{{Util::bagde($customer->status)}} me-1">{{Util::estado($customer->status)}}</span></td>
+                  <td><span class="badge bg-label-{{Util::bagde($customers_users->status)}} me-1">{{Util::estado($customers_users->status)}}</span></td>
                 </tr>
                 @endforeach
             </tbody>

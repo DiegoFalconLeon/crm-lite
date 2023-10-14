@@ -45,8 +45,13 @@
         },
         {
           "url": "/customers/assign-user",
-          "name": "Añadir caso a trabajador",
+          "name": "Listar Casos",
           "slug": "customers.assign-user.list"
+        },
+        {
+          "url": "/customers/assign-user/create",
+          "name": "Añadir caso a trabajador",
+          "slug": "customers.assign-user.create"
         }
       ]
     },
@@ -56,7 +61,7 @@
     {
       "name": "Empresa",
       "icon": "menu-icon tf-icons bx bx-cog",
-      "slug": "company.index",
+      "slug": "company.index  ",
       "url": "/company"
     },
     {

@@ -117,6 +117,8 @@ Route::get('/customers/assign-user/show/{id}', $controller_path . '\customers\as
 Route::get('/customers/assign-user/delete/{id}', $controller_path . '\customers\assign_user\CustomersUsersController@delete')->name('customers.assign-user.delete');
 Route::post('/customers/assign-user/edit', $controller_path . '\customers\assign_user\CustomersUsersController@update')->name('customers.assign-user.edit');
 Route::post('/customers/assign-user/new', $controller_path . '\customers\assign_user\CustomersUsersController@newCustomerUser')->name('customers.assign-user.new');
+Route::get('customers/assign-user/export/pdf', $controller_path . '\customers\assign_user\CustomersUsersController@exportPDF')->name('customers.assign-user.pdf');
+Route::get('customers/assign-user/export/excel', $controller_path . '\customers\assign_user\CustomersUsersController@exportExcel')->name('customers.assign-user.excel');
 
 //areas
 Route::get('/areas', $controller_path . '\areas\AreaController@index')->name('areas.list');

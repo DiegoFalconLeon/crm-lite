@@ -177,6 +177,9 @@ return [
     App\Providers\EventServiceProvider::class,
     App\Providers\RouteServiceProvider::class,
     App\Providers\MenuServiceProvider::class,
+    //add
+    Maatwebsite\Excel\ExcelServiceProvider::class,
+    Barryvdh\DomPDF\ServiceProvider::class,
 
   ],
 
@@ -195,7 +198,9 @@ return [
     // ...
     'Util' => App\Helpers\Util::class,
 	  'Fecha' => App\Helpers\Fecha::class,
-
+    //add
+    'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+    'PDF' => Barryvdh\DomPDF\Facade::class,
   ])->toArray(),
 
 ];
