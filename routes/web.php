@@ -85,10 +85,10 @@ Route::get('/login', $controller_path . '\login\LoginController@index')->name('l
 Route::get('/logout', $controller_path . '\login\LoginController@logout')->name('logout');
 Route::post('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
 
-// Route::group(['middleware'=>'auth'],function(){
-//   $controller_path = 'App\Http\Controllers';
-// 	Route::get('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
-// });
+//  Route::group(['middleware'=>'auth'],function(){
+//    $controller_path = 'App\Http\Controllers';
+//  	Route::get('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
+
 
 
 //usuarios
@@ -141,3 +141,4 @@ Route::get('/company', $controller_path . '\company\CompanyController@index')->n
 Route::post('/company/edit', $controller_path . '\company\CompanyController@update')->name('company.update');
 
 
+//});

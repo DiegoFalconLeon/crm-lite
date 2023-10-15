@@ -81,7 +81,7 @@
                 <br>{{ $company->name }}
                 <br>RUC: {{ $company->document }}
             </td>
-            <td class="center"><h2><strong>Lista de Posibles Clientes</strong></h2>
+            <td class="center"><h2><strong>Estados de casos</strong></h2>
             <td class="center">Fecha: {{ now(); }}</td>
         </tr>
     </table>
@@ -100,24 +100,35 @@
             </thead>
             <tbody
                 @php
-                  $aceptado,$noaceptado,$pendiente = 0;
+                  $aceptado = 0;
+                  $rechazado=0;
+                  $pendiente = 0;
                 @endphp
                 @foreach ($customers_users as $customer_user)
                 <tr>
                   <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customer_user->customers->name ." ". $customer_user->customers->lastname}}</strong></td>
                   <td>{{$customer_user->areas->name}}</td>
                   <td>{{$customer_user->description}}</td>
-                  <td>{{$customer_user->amount}}</td>
+                  <td>{{number_format($customer_user->amount,2,'.',',')}}</td>
                   <td>{{$customer_user->users->name." ".$customer_user->users->lastname}}</td>
                   @if ($customer_user->status == 1) {{--aceptado--}}
+                    @php
+                        $aceptado = $customer_user->amount + $aceptado;
+                    @endphp
                     <td style=" background: greenyellow;">
                       <span >{{Util::cstatus($customer_user->status)}}</span>
                     </td>
                   @elseif ($customer_user->status == 2){{--pendiente--}}
+                    @php
+                        $pendiente = $customer_user->amount + $pendiente;
+                    @endphp
                     <td style=" background: yellow;">
                       <span >{{Util::cstatus($customer_user->status)}}</span>
                     </td>
                   @else
+                    @php
+                        $rechazado = $customer_user->amount + $rechazado;
+                    @endphp
                   <td style=" background: red; color:white">{{--rechazado--}}
                     <span >{{Util::cstatus($customer_user->status)}}</span>
                   </td>
@@ -128,6 +139,17 @@
         </table>
         <br>
         <br>
+        <table class="tfin" style="text-align: left;">
+            <tr>
+                <td>Total Aceptados: @php echo('S/. '. number_format($aceptado,2,'.',',')); @endphp</td>
+            </tr>
+            <tr>
+                <td>Total Pendiente: @php echo('S/. '. number_format($pendiente,2,'.',',')) @endphp</td>
+            </tr>
+            <tr>
+                <td>Total Rechazados: @php echo('S/. '. number_format($rechazado,2,'.',',')) @endphp</td>
+            </tr>
+        </table>
     </main>
 </body>
 </html>

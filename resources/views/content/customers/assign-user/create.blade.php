@@ -15,7 +15,7 @@
   <div class="col-md-12">
 
     <div class="card mb-4">
-      <h5 class="card-header">Añadir trabajador</h5>
+      <h5 class="card-header">Añadir caso a trabajador</h5>
       <hr class="my-0">
       <div class="card-body">
         <form id="formAccountSettings" method="POST" action="{{route('customers.assign-user.new')}}">
@@ -30,7 +30,7 @@
               </select>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="areas" class="form-label">Escoger area</label>
+              <label for="areas" class="form-label">Escoger area de consulta</label>
               <select id="areas" name="areas" class="select2 form-select">
                 @foreach($areas as $area)
                   <option value="{{$area->id}}" >{{$area->name}}</option>
@@ -39,14 +39,14 @@
             </div>
             <div class="mb-3 col-md-12">
               <label for="description" class="form-label">Detalle de consulta</label>
-              <input class="form-control" type="text" name="description" id="description" placeholder="Documento"/>
+              <input class="form-control" type="text" name="description" id="description" placeholder="descripcion"/>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="amount" class="form-label">Monto</label>
+              <label for="amount" class="form-label">Monto de la propuesta</label>
               <input class="form-control" type="number" id="amount" name="amount" placeholder="Ingrese el monto"/>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="users" class="form-label">Escoger area</label>
+              <label for="users" class="form-label">asignar a Trabajador</label>
               <select id="users" name="users" class="select2 form-select">
                 @foreach($users as $user)
                   <option value="{{$user->id}}" >{{$user->name}} {{$user->lastname}}</option>
