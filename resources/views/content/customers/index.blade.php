@@ -9,7 +9,7 @@
 <div >
   <a href="/customers/create" class="btn btn-primary">Crear Cliente</a>
   <a href="{{route('customers.pdf')}}" class="btn btn-danger">Exportar PDF</a>
-  <a href="{{route('customers.excel')}}" class="btn btn-success">Exportar PDF</a>
+  <a href="{{route('customers.excel')}}" class="btn btn-success">Exportar Excel</a>
 </div></br>
 
 <div class="card">

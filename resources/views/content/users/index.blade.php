@@ -6,7 +6,11 @@
 <h4 class="fw-bold py-3 mb-4">
   <span class="text-muted fw-light">Usuarios /</span> Lista de Usuarios
 </h4>
-<div ><a href="/users/create" class="btn btn-primary">Crear Usuario</a></div></br>
+<div >
+  <a href="{{route('users.create')}}" class="btn btn-primary">Crear Usuario</a>
+  <a href="{{route('users.pdf')}}" class="btn btn-danger">Exportar PDF</a>
+  <a href="{{route('users.excel')}}" class="btn btn-success">Exportar Excel</a>
+</div></br>
 
 <div class="card">
   {{-- <h5 class="card-header">Light Table head</h5> --}}

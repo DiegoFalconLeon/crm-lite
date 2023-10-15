@@ -77,12 +77,12 @@
     <table class="h">
         <tr>
             <td width="200px" class="center">
-                <img src="{{asset('companies/'. $company->image)}}" height="60px" style="text-align:center" border="0">
+                <img src="{{asset('companies/'. $company->image)  }}" height="60px" style="text-align:center" border="0">
                 <br>{{ $company->name }}
                 <br>RUC: {{ $company->document }}
             </td>
-            <td class="center"><h2><strong>Lista de Clientes</strong></h2>
-            <td class="center">Fecha: {{ now(); }}</td>
+            <td class="center"><h2><strong>Lista de Usuarios</strong></h2>
+            <td class="center">Fecha: {{ Fecha::formato(now()); }}</td>
         </tr>
     </table>
     <br>
@@ -90,24 +90,25 @@
         <table class="table" border="0">
             <thead>
                 <tr>
+                  <th>Imagen</th>
                   <th>Nombre Completo</th>
-                  <th>Medio de contacto</th>
-                  <th>Documento</th>
+                  <th>Área</th>
                   <th>Correo</th>
-                  <th>Celular</th>
+                  <th>Rol</th>
                   <th>Estado</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($customers as $customer)
+                @foreach ($users as $user)
                 <tr>
-                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customer->name ." ". $customer->lastname}}</strong></td>
-                  <td>{{$customer->meansOfContact->name}}</td>
-                  <td>{{$customer->document}}</td>
-                  <td>{{$customer->email}}</td>
-                  <td>{{$customer->phone}}</td>
-                  {{-- <td>{{$customer->areas->name}}</td> --}}
-                  <td><span class="badge bg-label-{{Util::bagde($customer->status)}} me-1">{{Util::estado($customer->status)}}</span></td>
+                  <td align="center" valign="middle" style=" text-align: center;" >
+                    <img width="110px" src="{{ asset('user/'.$user->image) }}" style="object-fit: cover" alt="">
+                  </td>
+                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$user->name ." ". $user->lastname}}</strong></td>
+                  <td>{{$user->areas->name}}</td>
+                  <td>{{$user->email}}</td>
+                  <td>{{Util::role($user->role)}}</td>
+                  <td><span class="badge bg-label-{{Util::bagde($user->status)}} me-1">{{Util::estado($user->status)}}</span></td>
                 </tr>
                 @endforeach
             </tbody>

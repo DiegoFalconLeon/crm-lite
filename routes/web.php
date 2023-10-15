@@ -98,6 +98,8 @@ Route::get('/users/show/{id}', $controller_path . '\users\UsersController@showUs
 Route::get('/users/delete/{id}', $controller_path . '\users\UsersController@delete')->name('users.delete');
 Route::post('/users/edit', $controller_path . '\users\UsersController@update')->name('users.edit');
 Route::post('/users/new', $controller_path . '\users\UsersController@newUser')->name('users.new');
+Route::get('users/export/pdf', $controller_path . '\users\UsersController@exportPDF')->name('users.pdf');
+Route::get('users/export/excel', $controller_path . '\users\UsersController@exportExcel')->name('users.excel');
 
 
 //clientes

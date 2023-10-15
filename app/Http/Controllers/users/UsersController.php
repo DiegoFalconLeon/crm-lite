@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Area;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Company;
+use App\Exports\UserExport;
 
 class UsersController extends Controller
 {
@@ -41,6 +43,17 @@ class UsersController extends Controller
       if($request->password != null){
         $users->password = Hash::make($request->password);
       }
+      $file = $request->file('image');
+      if ($file) {
+        if ($request->image != 'default.png') {
+          $filename = $users->name ." " . $users->lastname .".png";
+          $users->image=$filename;
+          $file->storeAs('user', $filename);
+          $img = \Image::make($file->path());
+          $imgurl = storage_path('app/user');
+          $img->save("$imgurl/$filename");
+        }
+      }
       $users->role= $request->role;
       $users->status = $request->status;
     	$users->save();
@@ -55,8 +68,30 @@ class UsersController extends Controller
       $users->password = Hash::make($request->password);
       $users->status = $request->status;
       $users->role= $request->role;
+      $file = $request->file('image');
+      if ($file) {
+        $filename = $users->name ." " . $users->lastname .".png";
+        $users->image=$filename;
+        $file->storeAs('user', $filename);
+        $img = \Image::make($file->path());
+        $imgurl = storage_path('app/user');
+        $img->save("$imgurl/$filename");
+      }
       $users->save();
       return redirect()->route('users.list');
     }
 
+    public function exportPDF(){
+      $users = User::all();
+      $company = Company::find(1);
+      // Convertimos la vista en un documento pdf.blade.php y le pasamos los datos del libro
+      $pdf = \PDF::loadView('content.users.pdf ', compact('users','company'));
+      // Descargamos el documento pdf con el nombre ficha_libro.php
+      return $pdf->download('Usuarios.pdf');
+    }
+
+    public function exportExcel(){
+      $excel = new UserExport;
+      return Excel::download($excel, 'Usuarios.xlsx');
+    }
 }
