@@ -82,7 +82,7 @@
                 <br>RUC: {{ $company->document }}
             </td>
             <td class="center"><h2><strong>Lista de Clientes</strong></h2>
-            <td class="center">Fecha: {{ now(); }}</td>
+            <td class="center">Fecha: {{ Fecha::formato(now()); }}</td>
         </tr>
     </table>
     <br>
