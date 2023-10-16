@@ -31,7 +31,8 @@ class CompanyController extends Controller
       $img = \Image::make($file->path());
       $imgurl = storage_path('app/companies');
       $img->save("$imgurl/$filename");
-
+      // session('logoCompany');
+      session(['logoCompany' => $filename]);
     }
     $company->save();
     return redirect()->route('company.index');
