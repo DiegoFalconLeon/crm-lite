@@ -30,22 +30,22 @@ class UserExport implements FromCollection, WithMapping, WithHeadings, ShouldAut
     }
     public function headings(): array{
       return [
-        'Nombre del cliente',
-        'Area de consulta',
-        'Detalle de consulta',
-        'Precio',
-        'Trabajador Asignado',
+        'Nombre del usuario',
+        'Area',
+        'Correo',
+        'Rol',
+        'Foto',
         'Estado',
       ];
     }
-    public function map($customer_user): array{
+    public function map($users): array{
       return [
-        $customer_user->customers->name . ' ' . $customer_user->customers->lastname,
-        $customer_user->areas->name,
-        $customer_user->description,
-        $customer_user->amount,
-        $customer_user->users->name . ' ' . $customer_user->users->lastname,
-        \Util::cstatus($customer_user->status),
+        $users->name . ' ' . $users->lastname,
+        $users->areas->name,
+        $users->email,
+        \Util::role($users->role),
+        $users->image,
+        \Util::estado($users->status),
 
       ];
     }

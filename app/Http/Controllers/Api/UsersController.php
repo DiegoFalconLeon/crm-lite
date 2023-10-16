@@ -19,7 +19,7 @@ class UsersController extends Controller
       $users = User::find($id);
       return $users;
   }
-  public function newUser(Request $request){
+  public function createUser(Request $request){
     $user = new User();
     $user->area_id= $request->area_id;
     $user->name = $request->name;
@@ -34,13 +34,16 @@ class UsersController extends Controller
   }
 
   public function updateUser($id, Request $request){
+    $id = $request->id;
     $user = User::find($id);
     $user->area_id= $request->area_id;
     $user->name = $request->name;
     $user->lastname = $request->lastname;
     $user->role = $request->role;
     $user->email = $request->email;
-    $user->password = Hash::make($request->password);
+    if($request->password != null){
+      $user->password = Hash::make($request->password);
+    }
     $user->image = $request->image;
     $user->status = $request->status;
     $user->save();

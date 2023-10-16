@@ -13,16 +13,18 @@ use App\Http\Controllers\Api\CustomerController;
 // });
 
 // API USERS
-Route::get('/users-list', [UsersController::class, 'list']);
+Route::get('/users/list', [UsersController::class, 'list']);
 Route::get("/users/find/{id}", [UsersController::class, "findById"]);
-Route::post("/users-save", [UsersController::class, "crateUser"]);
-Route::put("/users-update/{id}", [UsersController::class, "updateUser"]);
-Route::delete("/users-delete/{id}", [UsersController::class, "deleteUser"]);
+Route::post("/users/create", [UsersController::class, "createUser"]);
+Route::put("/users/update/{id}", [UsersController::class, "updateUser"]);
+Route::delete("/users/delete/{id}", [UsersController::class, "deleteUser"]);
 
 // CUSTOMERS
-Route::get('/customers-list', [CustomerController::class, 'list']);
+Route::get('/customers/list', [CustomerController::class, 'list']);
 Route::get("/customers/find/{id}", [CustomerController::class, "findById"]);
-Route::post("/customers-save", [CustomerController::class, "newCustomer"]);
-Route::put("/customers-update/{id}", [CustomerController::class, "updateCustomer"]);
-Route::delete("/customers-delete/{id}", [CustomerController::class, "deleteCustomer"]);
+Route::post("/customers/create", [CustomerController::class, "newCustomer"]);
+Route::put("/customers/update/{id}", [CustomerController::class, "updateCustomer"]);
+Route::delete("/customers/delete/{id}", [CustomerController::class, "deleteCustomer"]);
 
+
+// CUSTOMERS USERS
