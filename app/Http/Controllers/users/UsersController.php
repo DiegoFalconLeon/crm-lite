@@ -30,7 +30,10 @@ class UsersController extends Controller
     }
     public function delete($id){
     	$users = User::find($id);
+      confirmDelete('Borrar Usuario', '¿Está seguro que desea borrar al usuario?');
     	$users->delete();
+      alert()->warning('WarningAlert','Lorem ipsum dolor sit amet.');
+
     	return redirect()->route('users.list');
     }
     public function update(Request $request){

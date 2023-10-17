@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Company;
 
+
 class LoginController extends Controller
 {
   public function index()
@@ -22,6 +23,7 @@ class LoginController extends Controller
     if(Auth::attempt($credentials)){
         return redirect()->route('login.authenticate');
     }else{
+        toast('Datos incorrectos','error')->autoClose(2000);
         return redirect()->route('login');
     }
   }

@@ -81,7 +81,7 @@ class CustomerUsersExport implements FromCollection, WithMapping, WithHeadings, 
       $drawing = new Drawing();
       $drawing->setName('Logo');
       $drawing->setDescription('This is my logo');
-      $drawing->setPath(public_path('/companies/default.png'));
+      $drawing->setPath(public_path('/companies/'.session('logoCompany')));
       $drawing->setHeight(90);
       $drawing->setCoordinates('C1');
 
