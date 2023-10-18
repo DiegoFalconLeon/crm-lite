@@ -28,7 +28,7 @@ class UsersSeeder extends Seeder
     ]);
     DB::table('users')->insert([
       'id' => 2,
-      'area_id' => 2,
+      'area_id' => 3,
       'name' => 'Mayra Angélica',
       'lastname' => 'Cruz Lázaro',
       'role' => 'U',
@@ -52,7 +52,7 @@ class UsersSeeder extends Seeder
     ]);
     DB::table('users')->insert([
       'id' => 4,
-      'area_id' => 2,
+      'area_id' => 4,
       'name' => 'Maria Guadalupe',
       'lastname' => 'Diaz Palomares',
       'role' => 'U',
@@ -64,7 +64,7 @@ class UsersSeeder extends Seeder
     ]);
     DB::table('users')->insert([
       'id' => 5,
-      'area_id' => 2,
+      'area_id' => 5,
       'name' => 'Francisco Javier',
       'lastname' => 'Melendez Lopez',
       'role' => 'U',

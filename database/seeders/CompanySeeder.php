@@ -16,12 +16,12 @@ class CompanySeeder extends Seeder
     public function run()
     {
         DB::table('company')->insert([
-            'name' => 'Corporación de Abogados Cridez SAC',
+            'name' => 'Mi tiendita SACC',
             'document' => '12345678901',
-            'address' => 'Urbanización Los Jazmines Mz. A Lt. 1 - San Juan de Lurigancho',
+            'address' => 'Acá cerquita nomás',
             'phone' => '987654321',
-            'email' => 'cridez@mail.com',
-            'website' => 'www.cridez.com',
+            'email' => 'mitiendita@mail.com',
+            'website' => 'www.mitiendita.com',
             'image' => 'default.png',
             'created_at' => now(),
         ]);

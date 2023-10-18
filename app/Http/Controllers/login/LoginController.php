@@ -21,7 +21,7 @@ class LoginController extends Controller
   public function authenticate(Request $request){
     $credentials = $request->only('email','password');
     if(Auth::attempt($credentials)){
-        return redirect()->route('login.authenticate');
+        return redirect()->route('dashboard-analytics');
     }else{
         toast('Datos incorrectos, reintente','error')->autoClose(2000);
         return redirect()->route('login');

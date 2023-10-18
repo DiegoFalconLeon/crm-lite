@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 $controller_path = 'App\Http\Controllers';
 
-// Main Page Route
-Route::get('/home', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
+
 
 // layout
 Route::get('/layouts/without-menu', $controller_path . '\layouts\WithoutMenu@index')->name('layouts-without-menu');
@@ -80,20 +79,22 @@ Route::get('/form/layouts-horizontal', $controller_path . '\form_layouts\Horizon
 Route::get('/tables/basic', $controller_path . '\tables\Basic@index')->name('tables-basic');
 
 //datos agregados despues de la plantilla
-//login
+
 
 Route::get('/', function () {
   return redirect('/login');
 });
-
+//login
 Route::get('/login', $controller_path . '\login\LoginController@index')->name('login');
-Route::get('/logout', $controller_path . '\login\LoginController@logout')->name('logout');
+//auth validate
 Route::post('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
 
-//  Route::group(['middleware'=>'auth'],function(){
-//    $controller_path = 'App\Http\Controllers';
-//  	Route::get('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');
+Route::group(['middleware'=>'auth'],function(){
 
+$controller_path = 'App\Http\Controllers';
+
+Route::get('/home', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
+Route::get('/logout', $controller_path . '\login\LoginController@logout')->name('logout');
 
 
 //usuarios
@@ -148,4 +149,4 @@ Route::get('/company', $controller_path . '\company\CompanyController@index')->n
 Route::post('/company/edit', $controller_path . '\company\CompanyController@update')->name('company.update');
 
 
-//});
+});

@@ -25,7 +25,7 @@ class AreaSeeder extends Seeder
     	]);
         DB::table('areas')->insert([
         	'id' => 3,
-        	'name'=>'areas Penal',
+        	'name'=>'Area Penal',
           'created_at'=>now(),
     	]);
         DB::table('areas')->insert([
