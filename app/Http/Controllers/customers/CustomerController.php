@@ -10,6 +10,7 @@ use App\Models\Company;
 use App\Models\MeansOfContact;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CustomerController extends Controller
 {
@@ -32,6 +33,7 @@ class CustomerController extends Controller
   public function delete($id){
     $customers = Customer::find($id);
     $customers->delete();
+    Alert::error('Cliente Eliminado', 'Se borró el cliente, correctamente')->autoClose(1500);
     return redirect()->route('customers.list');
   }
   public function update(Request $request){
@@ -47,6 +49,7 @@ class CustomerController extends Controller
     $customers->phone = $request->phone;
     $customers->status = $request->status;
     $customers->save();
+    Alert::success('Cliente actualizado', 'Se actualizó el cliente correctamente')->autoClose(1500);
     return redirect()->route('customers.list');
   }
   public function newUser(Request $request){
@@ -59,6 +62,7 @@ class CustomerController extends Controller
     $customers->email = $request->email;
     $customers->phone = $request->phone;
     $customers->save();
+    Alert::success('Cliente creado', 'Se creó el cliente correctamente')->autoClose(1500);
     return redirect()->route('customers.list');
   }
 

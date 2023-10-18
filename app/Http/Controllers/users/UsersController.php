@@ -9,17 +9,21 @@ use App\Models\Area;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Company;
 use App\Exports\UserExport;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class UsersController extends Controller
 {
     public function index(){
       $users = User::all();
+      // confirmDelete('Borrar Usuario', '¿Está seguro que desea borrar al usuario?');
       return view('content.users.index',compact('users'));
     }
 
     public function create(){
       $users = User::all();
       $areas = Area::all();
+
       return view('content.users.create', compact('users','areas'));
     }
 
@@ -30,12 +34,11 @@ class UsersController extends Controller
     }
     public function delete($id){
     	$users = User::find($id);
-      confirmDelete('Borrar Usuario', '¿Está seguro que desea borrar al usuario?');
     	$users->delete();
-      alert()->warning('WarningAlert','Lorem ipsum dolor sit amet.');
-
+      Alert::error('Usuario Eliminado', 'Se borró el usuario')->autoClose(1500);
     	return redirect()->route('users.list');
     }
+
     public function update(Request $request){
     	$id = $request->id;
       $users = User::find($id);
@@ -60,6 +63,7 @@ class UsersController extends Controller
       $users->role= $request->role;
       $users->status = $request->status;
     	$users->save();
+      Alert::success('Usuario actualizado', 'Se actualizó al usuario correctamente')->autoClose(1500);
     	return redirect()->route('users.list');
     }
     public function newUser(Request $request){
@@ -81,15 +85,14 @@ class UsersController extends Controller
         $img->save("$imgurl/$filename");
       }
       $users->save();
+      Alert::success('Usuario Creado', 'se creó el usuario correctamente')->autoClose(1500);
       return redirect()->route('users.list');
     }
 
     public function exportPDF(){
       $users = User::all();
       $company = Company::find(1);
-      // Convertimos la vista en un documento pdf.blade.php y le pasamos los datos del libro
       $pdf = \PDF::loadView('content.users.pdf ', compact('users','company'));
-      // Descargamos el documento pdf con el nombre ficha_libro.php
       return $pdf->download('Usuarios.pdf');
     }
 

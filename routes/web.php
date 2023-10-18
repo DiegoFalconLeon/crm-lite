@@ -81,6 +81,11 @@ Route::get('/tables/basic', $controller_path . '\tables\Basic@index')->name('tab
 
 //datos agregados despues de la plantilla
 //login
+
+Route::get('/', function () {
+  return redirect('/login');
+});
+
 Route::get('/login', $controller_path . '\login\LoginController@index')->name('login');
 Route::get('/logout', $controller_path . '\login\LoginController@logout')->name('logout');
 Route::post('/home', $controller_path . '\login\LoginController@authenticate')->name('login.authenticate');

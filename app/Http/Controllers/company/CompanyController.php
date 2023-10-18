@@ -5,6 +5,7 @@ namespace App\Http\Controllers\company;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Company;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CompanyController extends Controller
 {
@@ -31,10 +32,10 @@ class CompanyController extends Controller
       $img = \Image::make($file->path());
       $imgurl = storage_path('app/companies');
       $img->save("$imgurl/$filename");
-      // session('logoCompany');
       session(['logoCompany' => $filename]);
     }
     $company->save();
+    Alert::success('Actualizado', 'Se actualizó los datos de la empresa correctamente')->autoClose(1500);
     return redirect()->route('company.index');
   }
 }

@@ -36,7 +36,7 @@
           <td><span class="badge bg-label-{{Util::bagde($user->status)}} me-1">{{Util::estado($user->status)}}</span></td>
           <td>
             <a  href="users/show/{{$user->id}}"><i class="bx bx-edit-alt me-1"></i> editar</a>
-            <a  href="users/delete/{{$user->id}};"><i class="bx bx-trash me-1"></i> Borrar</a>
+            <a  href="users/delete/{{$user->id}}" data-confirm-delete="false"><i class="bx bx-trash me-1"></i> Borrar</a>
           </td>
         </tr>
         @endforeach

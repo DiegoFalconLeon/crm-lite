@@ -12,6 +12,7 @@ use App\Models\Customer;
 use App\Models\User;
 use App\Models\Company;
 use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CustomersUsersController extends Controller
 {
@@ -38,6 +39,7 @@ class CustomersUsersController extends Controller
   public function delete($id){
     $customers = CustomersUsers::find($id);
     $customers->delete();
+    Alert::error('Caso Eliminado', 'Se borró el caso, correctamente')->autoClose(1500);
     return redirect()->route('customers.assign-user.list');
   }
   public function update(Request $request){
@@ -50,6 +52,7 @@ class CustomersUsersController extends Controller
     $customers_users->description = $request->description;
     $customers_users->status = $request->status;
     $customers_users->save();
+    Alert::success('Caso actualizado', 'Se actualizó el caso correctamente')->autoClose(1500);
     return redirect()->route('customers.assign-user.list');
   }
   public function newCustomerUser(Request $request){
@@ -61,6 +64,7 @@ class CustomersUsersController extends Controller
     $customers_users->description = $request->description;
     $customers_users->status = $request->status;
     $customers_users->save();
+    Alert::success('Caso creado', 'Se creó el caso correctamente')->autoClose(1500);
     return redirect()->route('customers.assign-user.list');
   }
   public function exportPDF(){

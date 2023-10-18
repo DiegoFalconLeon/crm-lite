@@ -3,7 +3,7 @@
   return [
     "creatorName" => "ThemeSelection",
     "creatorUrl" => "https://themeselection.com",
-    "templateName" => "Cridez",
+    "templateName" => "Extraley",
     "templateDescription" => "Most Powerful & Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!",
     "templateKeyword" => "Estudio Jurídico, Asesoria Legal, Asesoria Tributaria, Asesoria Penal, Asesoria Familiar",
     "licenseUrl" => "https://themeselection.com/license/",
