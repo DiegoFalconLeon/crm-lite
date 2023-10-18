@@ -1,9 +1,12 @@
 /node_modules
 /public/hot
+/public/companies
 /public/storage
+/public/user
 /storage/*.key
 /vendor
 .env.backup
+.env
 .phpunit.result.cache
 docker-compose.override.yml
 Homestead.json
@@ -20,4 +23,3 @@ yarn-error.log
 /public/assets/js
 /public/assets/css
 /public/assets/vendor
-.env
