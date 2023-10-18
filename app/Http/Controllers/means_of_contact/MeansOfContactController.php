@@ -5,6 +5,7 @@ namespace App\Http\Controllers\means_of_contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MeansOfContact;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MeansOfContactController extends Controller
 {
@@ -25,6 +26,7 @@ class MeansOfContactController extends Controller
   public function delete($id){
     $meansOfContact = MeansOfContact::find($id);
     $meansOfContact->delete();
+    Alert::error('Medio eliminado', 'Se eliminó el medio de contacto, correctamente')->autoClose(1500);
     return redirect()->route('meansofcontact.list');
   }
   public function update(Request $request){
@@ -33,6 +35,7 @@ class MeansOfContactController extends Controller
     $meansOfContact->name = $request->name;
     $meansOfContact->status = $request->status;
     $meansOfContact->save();
+    Alert::success('Medio actualizado', 'Se actualizó el medio de contacto, correctamente')->autoClose(1500);
     return redirect()->route('meansofcontact.list');
   }
   public function newUser(Request $request){
@@ -40,6 +43,7 @@ class MeansOfContactController extends Controller
     $meansOfContact->name = $request->name;
     $meansOfContact->status = $request->status;
     $meansOfContact->save();
+    Alert::success('Medio actualizado', 'Se creó el medio de contantaco correctamente')->autoClose(1500);
     return redirect()->route('meansofcontact.list');
   }
 }
