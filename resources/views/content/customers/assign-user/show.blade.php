@@ -47,11 +47,9 @@
               <input class="form-control" type="number" id="amount" name="amount" value="{{$customers_users->amount}}"/>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="users" class="form-label">Trabajador asignado</label>
+              <label for="users" class="form-label">Asignar a Trabajador</label>
               <select id="users" name="users" class="select2 form-select">
-                @foreach($users as $user)
-                  <option value="{{$user->id}}" @selected($user->id==$customers_users->user_id)>{{$user->name}} {{$user->lastname}}</option>
-                @endforeach
+                  <option value="">Seleccione un trabajador</option>
               </select>
             </div>
             <div class="mb-3 col-md-6">
@@ -77,4 +75,30 @@
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+      $('#areas').on('change', function () {
+          var areaId = $(this).val();
+          if (areaId) {
+              $.ajax({
+                  url: '/customers/assign-user/getUsersByArea/' + areaId,
+                  type: 'GET',
+                  success: function (data) {
+                      $('#users').empty();
+                      $('#users').append('<option value="">Seleccione un trabajador</option>');
+                      $.each(data, function (key, value) {
+                          $('#users').append('<option value="' + key + '">' + value + '</option>');
+                      });
+                  }
+              });
+          } else {
+              $('#users').empty();
+              $('#users').append('<option value="">Seleccione un trabajador</option>');
+          }
+      });
+  });
+</script>
 @endsection

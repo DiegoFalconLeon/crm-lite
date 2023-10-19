@@ -28,6 +28,16 @@ class CustomersUsersController extends Controller
     return view('content.customers.assign-user.create', compact('customers_users','areas','users','customers'));
   }
 
+  public function getUsersByArea($areaId){
+    $users = User::where('area_id', $areaId)->where('status','A')->get();
+    $userList = [];
+    foreach ($users as $user) {
+        $userList[$user->id] = $user->name . ' ' . $user->lastname;
+    }
+    return response()->json($userList);
+  }
+
+
   public function show($id){
     $customers_users = CustomersUsers::find($id);
     $customers = Customer::where('status','A')->get();
@@ -35,6 +45,7 @@ class CustomersUsersController extends Controller
     $users = User::where('status','A')->get();
     return view('content.customers.assign-user.show', compact('customers_users', 'areas','users','customers'));
   }
+
   public function delete($id){
     $customers = CustomersUsers::find($id);
     $customers->delete();

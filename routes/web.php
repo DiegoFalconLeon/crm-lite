@@ -127,6 +127,10 @@ Route::post('/customers/assign-user/edit', $controller_path . '\customers\assign
 Route::post('/customers/assign-user/new', $controller_path . '\customers\assign_user\CustomersUsersController@newCustomerUser')->name('customers.assign-user.new');
 Route::get('customers/assign-user/export/pdf', $controller_path . '\customers\assign_user\CustomersUsersController@exportPDF')->name('customers.assign-user.pdf');
 Route::get('customers/assign-user/export/excel', $controller_path . '\customers\assign_user\CustomersUsersController@exportExcel')->name('customers.assign-user.excel');
+Route::get('/customers/assign-user/getUsersByArea/{areaId}', $controller_path .'\customers\assign_user\CustomersUsersController@getUsersByArea')->name('customers.assign-user.get-by-area');
+// Route::get('/customers/assign-user/getUsersByArea/{areaId}', $controller_path .'\customers\assign_user\CustomersUsersController@getUsersByArea')->name('get.users.by.area');
+
+
 
 //areas
 Route::get('/areas', $controller_path . '\areas\AreaController@index')->name('areas.list');
@@ -147,6 +151,5 @@ Route::post('/meansofcontact/new', $controller_path . '\means_of_contact\MeansOf
 //company
 Route::get('/company', $controller_path . '\company\CompanyController@index')->name('company.index');
 Route::post('/company/edit', $controller_path . '\company\CompanyController@update')->name('company.update');
-
 
 });
