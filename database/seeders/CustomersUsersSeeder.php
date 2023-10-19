@@ -40,9 +40,29 @@ class CustomersUsersSeeder extends Seeder
         'customer_id'=>'3',
         'area_id'=>'4',
         'user_id'=>'3',
-        'description'=>'Solicita carta poder para la venta de un vehiculo',
-        'amount'=> 250.00,
+        'description'=>'Indemnisacion por daños y perjuicios',
+        'amount'=> 550.00,
+        'status'=>'2',
+        'created_at'=>now(),
+      ]);
+      DB::table('customers_users')->insert([
+        'id' => 4,
+        'customer_id'=>'1',
+        'area_id'=>'5',
+        'user_id'=>'1',
+        'description'=>'Despido injustificado',
+        'amount'=> 1250.00,
         'status'=>'0',
+        'created_at'=>now(),
+      ]);
+      DB::table('customers_users')->insert([
+        'id' => 5,
+        'customer_id'=>'3',
+        'area_id'=>'4',
+        'user_id'=>'5',
+        'description'=>'Denuncia de alimentos',
+        'amount'=> 899.90,
+        'status'=>'1',
         'created_at'=>now(),
       ]);
     }

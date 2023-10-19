@@ -22,14 +22,13 @@ class UsersController extends Controller
 
     public function create(){
       $users = User::all();
-      $areas = Area::all();
-
+      $areas = Area::where('status','A')->get();
       return view('content.users.create', compact('users','areas'));
     }
 
     public function showUser($id){
     	$users = User::find($id);
-    	$areas = Area::all();
+      $areas = Area::where('status','A')->get();
     	return view('content.users.show', compact('users', 'areas'));
     }
     public function delete($id){

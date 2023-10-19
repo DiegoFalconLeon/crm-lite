@@ -21,13 +21,13 @@ class CustomerController extends Controller
 
   public function create(){
     $customers = Customer::all();
-    $means_of_contact = MeansOfContact::all();
+    $means_of_contact = MeansOfContact::where('status','A')->get();
     return view('content.customers.create', compact('customers','means_of_contact'));
   }
 
   public function showCustomer($id){
     $customers = Customer::find($id);
-    $means_of_contact = MeansOfContact::all();
+    $means_of_contact = MeansOfContact::where('status','A')->get();
     return view('content.customers.show', compact('customers', 'means_of_contact'));
   }
   public function delete($id){
@@ -69,9 +69,7 @@ class CustomerController extends Controller
   public function exportPDF(){
     $customers = Customer::all();
     $company = Company::find(1);
-    // Convertimos la vista en un documento pdf.blade.php y le pasamos los datos del libro
     $pdf = \PDF::loadView('content.customers.pdf ', compact('customers','company'));
-    // Descargamos el documento pdf con el nombre ficha_libro.php
     return $pdf->download('Clientes.pdf');
   }
 

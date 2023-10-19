@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\customers\assign_user;
 
 use App\Exports\CustomerUsersExport;
-use App\Exports\CustomerExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CustomersUsers;
@@ -22,18 +21,18 @@ class CustomersUsersController extends Controller
   }
 
   public function create(){
-    $customers = Customer::all();
-    $areas = Area::all();
-    $users = User::all();
+    $customers = Customer::where('status','A')->get();
+    $areas = Area::where('status','A')->get();
+    $users = User::where('status','A')->get();
     $customers_users = CustomersUsers::all();
     return view('content.customers.assign-user.create', compact('customers_users','areas','users','customers'));
   }
 
   public function show($id){
     $customers_users = CustomersUsers::find($id);
-    $customers = Customer::all();
-    $areas = Area::all();
-    $users = User::all();
+    $customers = Customer::where('status','A')->get();
+    $areas = Area::where('status','A')->get();
+    $users = User::where('status','A')->get();
     return view('content.customers.assign-user.show', compact('customers_users', 'areas','users','customers'));
   }
   public function delete($id){
@@ -71,9 +70,7 @@ class CustomersUsersController extends Controller
     $customers_users = CustomersUsers::all();
     //dd($customers_users);
     $company = Company::find(1);
-    // Convertimos la vista en un documento pdf.blade.php y le pasamos los datos del libro
     $pdf = \PDF::loadView('content.customers.assign-user.pdf', compact('customers_users','company'));
-    // Descargamos el documento pdf con el nombre ficha_libro.php
     return $pdf->download('Estados de casos.pdf');
   }
 
