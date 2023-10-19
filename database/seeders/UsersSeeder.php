@@ -47,7 +47,7 @@ class UsersSeeder extends Seeder
       'email' => 'juan.perez@mail.com',
       'password' => Hash::make('12345678'),
       'image'=>'3.png',
-      'status' => 'A',
+      'status' => 'I',
       'created_at' => now(),
     ]);
     DB::table('users')->insert([
@@ -59,7 +59,7 @@ class UsersSeeder extends Seeder
       'email' => 'maria.diaz@mail.com',
       'password' => Hash::make('12345678'),
       'image'=>'4.png',
-      'status' => 'I',
+      'status' => 'A',
       'created_at' => now(),
     ]);
     DB::table('users')->insert([
