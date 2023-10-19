@@ -77,12 +77,12 @@
     <table class="h">
         <tr>
             <td width="200px" class="center">
-                <img src="{{asset('companies/default.png')  }}" height="60px" style="text-align:center" border="0">
+                <img src="{{asset('companies/'. $company->image)  }}" height="60px" style="text-align:center" border="0">
                 <br>{{ $company->name }}
                 <br>RUC: {{ $company->document }}
             </td>
             <td class="center"><h2><strong>Estados de casos</strong></h2>
-            <td class="center">Fecha: {{ now(); }}</td>
+            <td class="center">Fecha: {{Fecha::formato(now());  }}</td>
         </tr>
     </table>
     <br>
